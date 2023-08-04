@@ -1,0 +1,47 @@
+//Abstraction
+#include <iostream>
+
+using namespace std;
+
+//base class
+
+class Smartphone{
+public:
+    virtual void TakeSelfie() = 0;
+    virtual void PhoneCall() = 0;
+};
+
+//derived classes
+
+class Android : public Smartphone{
+public:
+   void TakeSelfie(){
+       cout <<"Android Selfie....\n";
+   }
+   void PhoneCall(){
+       cout <<"Android Incoming Call....\n";
+   }
+};
+
+class IPhone : public Smartphone{
+public :
+   void TakeSelfie(){
+       cout << "IPhone Selfie ====\n";
+   }
+   void PhoneCall(){
+       cout << "IPhone Incoming Call ====\n";
+   }
+};
+
+int main()
+{
+    Smartphone *s1 = new Android();
+    s1->TakeSelfie();
+    s1->PhoneCall();
+    
+    Smartphone *s2 = new IPhone();
+    s2->TakeSelfie();
+    s2->PhoneCall();
+
+    return 0;
+}

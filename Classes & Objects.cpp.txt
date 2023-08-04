@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+class youTubeChannel{
+    public:                            //class
+    string name;
+    string ownerName;//variables
+    int subCount;
+    list<string>uploads;
+};
+
+
+int main()
+{
+    youTubeChannel ytChannel;    //object
+    ytChannel.name = "somesh";
+    ytChannel.ownerName = "reddy";
+    ytChannel.subCount = 10;
+    ytChannel.uploads = {"a day in my life", "OOps","DSA","Projects"};
+    
+    cout << "name :" << ytChannel.name <<endl;
+    cout << "ownerName :" << ytChannel.ownerName <<endl;
+    cout << "subCount :" << ytChannel.subCount <<endl;
+    cout << "uploads :" <<endl;
+    for(string videoTitle:ytChannel.uploads){
+        cout << videoTitle <<", ";
+    }
+    
+
+    return 0;
+}
+
+

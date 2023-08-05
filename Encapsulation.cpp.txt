@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+class youTubeChannel{
+    private:
+    
+    string Name;
+    string OwnerName;
+    int subCount;
+    list<string>Uploads;
+    
+    public:
+    
+    youTubeChannel(string name,string ownerName){ //constructor
+        Name = name;
+        OwnerName = ownerName;
+        subCount = 0;
+    }
+    
+    void GetInfo(){
+        cout << "name : " << Name <<endl;
+        cout << "ownerName : " << OwnerName <<endl;
+        cout << "subCount : " << subCount <<endl;     //class methods
+        cout << "uploads :" <<endl;
+        for(string videoTitle:Uploads){
+           cout << videoTitle <<" "<<"\n";
+        }
+    }
+    
+    void Subscribe(){
+        subCount++;
+    }
+    
+    void Unsubscribe(){
+        if(subCount > 0)
+          subCount--;
+    }
+    
+    void Pubishvideo(string title){
+        Uploads.push_back(title);
+    }
+};
+
+
+int main()
+{
+    youTubeChannel ytChannel("Somesh","reddy");
+    ytChannel.Pubishvideo("C++");
+    ytChannel.Pubishvideo("C");
+    ytChannel.Pubishvideo("C%");
+    ytChannel.Pubishvideo("C#");
+    ytChannel.Subscribe();
+    ytChannel.Unsubscribe();
+    ytChannel.Unsubscribe();
+    ytChannel.Unsubscribe();
+    
+    
+    ytChannel.GetInfo();
+
+    return 0;
+}

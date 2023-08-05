@@ -1,0 +1,32 @@
+//pure virtual functions $ abstract class
+#include <iostream>
+using namespace std;
+
+class Instrument{
+public:
+  virtual void MakeSound() = 0;
+};
+
+class Guitar : public Instrument{
+public:
+   void MakeSound(){
+       cout <<" Guitar is playing----\n";
+   }
+};
+
+class Piano : public Instrument{
+public:
+   void MakeSound(){
+       cout <<" Piano is playing----\n";
+   }
+};
+
+int main() {
+    Instrument *i1 = new Guitar();
+    i1-> MakeSound();
+   Instrument *i2 = new Piano();
+    i2-> MakeSound();
+   
+
+    return 0;
+}

@@ -1,4 +1,5 @@
 //pure virtual functions $ abstract class
+//An abstract class should contain a atleast one virtual function
 #include <iostream>
 using namespace std;
 

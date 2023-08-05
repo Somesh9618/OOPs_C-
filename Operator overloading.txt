@@ -1,0 +1,59 @@
+// operator overloading && ostream 
+#include <iostream>
+#include <string>
+#include <list>
+using namespace std;
+
+struct YouTubeChannel{
+    string Name;
+    int SubCount;
+    
+    YouTubeChannel(string name,int subcount){
+        Name = name;
+        SubCount = subcount;
+    }
+    bool operator==(const YouTubeChannel& channel){
+        return this->Name == channel.Name;
+    }
+};
+
+ostream& operator << (ostream& COUT,YouTubeChannel& ytChannel){
+    COUT << "Name: " << ytChannel.Name <<endl;
+    COUT << "SubscriberCount : "<<ytChannel.SubCount<<"\n";
+    return COUT;
+}
+
+struct MyCollection{
+    list<YouTubeChannel>myChannels;
+    
+    void operator += (YouTubeChannel& channel){
+        this->myChannels.push_back(channel);
+    }
+    void operator -= (YouTubeChannel& channel){
+        this->myChannels.remove(channel);
+    }
+};
+
+ostream& operator << (ostream& COUT ,MyCollection& myCollection){
+    for(YouTubeChannel ytChannel : myCollection.myChannels){
+       COUT << ytChannel <<endl;
+       
+    }
+    return COUT;
+}
+
+
+
+int main()
+{
+    YouTubeChannel yt1 = YouTubeChannel("somesh",1000000);
+    YouTubeChannel yt2 = YouTubeChannel("reddy",1000000);
+    MyCollection myCollections;
+    myCollections+=yt1;
+    myCollections+=yt2;
+    myCollections-=yt2;
+    myCollections+=yt2;
+    cout << myCollections;
+
+    return 0;
+}
